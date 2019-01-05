@@ -12,20 +12,39 @@ body{
 	font-family: 'Open Sans', sans-serif;
 	margin: 0;
 	color: black;
-	animation-name: body;
-	animation-duration: 10s;
-	animation-iteration-count: infinite;
-	animation-fill-mode: forwards; 
+	animation:body 30s linear infinite;	
+	background-image: url("snow-first.png"), url("snow-second.png"), url("snow-third.png"); 
 }
+.snow{
+	
+	background-image: url("snow-first.png"), url("snow-second.png"), url("snow-third.png");
+	animation: snowfall-effect 30s linear infinite;
+	padding: 25px 20px;
+	width: 100% !important;
+	height: 100% !important;
+}
+@keyframes snowfall-effect{
+	0%{
+		background-position: 0px, 0px, 0px, 0px, 0px, 0px;
+	}
+	100%{
+		background-position: 500px, 10000px, 400px, 400px, 300px, 300px;
+	}
+}
+
+
+
 @keyframes body{
 	0%{
 		background-color: #5ee0a8;
+		background-position: 0px, 0px, 0px, 0px, 0px, 0px;
 	}
 	50%{
 		background-color: #338fff;
 	}
 	100%{
 		background-color: #5ee0a8;
+		background-position: 500px, 10000px, 400px, 400px, 300px, 300px;
 	}
 }
 
@@ -42,15 +61,15 @@ h1:focus{
 	text-transform: uppercase;	
 	color:white;
 	
-	background-image: linear-gradient(to right,#5ee0a8 10%,#3b52f0);
+	background: linear-gradient(to right,#5ee0a8 10%,#3b52f0);
 	margin:0;
-	padding: 25px 20px;
+	/*padding: 25px 20px;  this blocked snow  */
 	
 }
 #navbar a:focus{
 	color:yellow;
 }
-/* Hover -ugly to change    */
+
 #navbar a:hover{
 	text-shadow:0px 0px 10px white;
 }
