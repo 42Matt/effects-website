@@ -69,11 +69,13 @@ body{
 }
 
 iframe{
+	
 	display: block;
 	margin: auto;
-	opacity:initial; /* need fix- it doesn't work */
 	width:60%;
-	
+	/* bottom: 31em;
+	left:22.5em;   
+	this is for video position if wanna made black*/
 	
 }	
 .snow{	
@@ -137,13 +139,13 @@ a:hover{
 	
 }
 #navbar li{
-	display: flex;
+	
 	font-size: var(--menufont,400px);
 	font-weight: 600;
 	letter-spacing: 2px;
 	float:left;
 	white-space: pre;
-	justify-content: center; 
+	text-align: center;
 	padding: 15px 15px;
 	border: 0.5px solid darkblue;	
 	background-image: linear-gradient(to bottom, #5ee0a8, #338fff);
@@ -167,8 +169,11 @@ a:hover{
 	box-shadow: 0px -1px 2px black;
 	opacity: 0.9;
 }
-.box-container{
-	max-width: page;
+.sticky-container{
+	position: sticky;
+	position: -webkit-sticky; /*Safari*/
+	top: 0;
+	z-index: 1;
 }
 .section{
 	border:0.3px solid #ffffff;
@@ -178,7 +183,12 @@ a:hover{
 	padding: 10px;
 	border-radius: 25px;
 	opacity: 0.6;
+	z-index: 2;
 	
+}
+.space-for-video{
+	width:560px;
+	height:315px;
 }
 
 .fixed{
