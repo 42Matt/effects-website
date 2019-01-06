@@ -6,22 +6,80 @@
 .clr{
 	clear: both;
 }
+:root{
+	--menufont: 20px;
+	--mainfont: 20px;
+}
+@media (max-width:700px){
+	:root{
+		--menufont: 15px;
+		--mainfont: 18px;
+		--buttontransform: scale(0.8);
+		--margin-fix: 0px 0px -10px -10px;
+	}
+	iframe{
+		
+	}
+}
 
+@media (max-width: 540px){
+	:root{
+		--menufont:13px;
+		--mainfont:15px;
+		--buttontransform: scale(0.7);
+		--margin-fix: 0px 0px -15px -15px;
+		
+	}
+	iframe{
+
+	}
+}
+@media (max-width: 470px){
+	:root{
+		--menufont:9px;
+		--mainfont:12px;
+		--buttontransform: scale(0.58);
+		--margin-fix: 0px 0px -20px -20px;
+		
+	}
+	iframe{
+		
+	}
+	
+}
 body{
 	
-	font-family: 'Open Sans', sans-serif;
-	margin: 0;
+	font-family: 'Open Sans', sans-serif;	
 	color: black;
-	animation:body 30s linear infinite;	
+	animation: body 30s linear infinite;	
+	animation-fill-mode: forwards;
 	background-image: url("snow-first.png"), url("snow-second.png"), url("snow-third.png"); 
 }
-.snow{
+.main-container{
+	margin: auto;
+	width: 80%;
+	overflow: hidden;
+	margin-bottom: 50px;
+}
+.container{
+	margin: auto;
+	width: 80%;
+	overflow: hidden;
+
+}
+
+iframe{
+	display: block;
+	margin: auto;
+	opacity:initial; /* need fix- it doesn't work */
+	width:60%;
 	
+	
+}	
+.snow{	
 	background-image: url("snow-first.png"), url("snow-second.png"), url("snow-third.png");
-	animation: snowfall-effect 30s linear infinite;
-	padding: 25px 20px;
-	width: 100% !important;
-	height: 100% !important;
+	animation: snowfall-effect 30s linear infinite;	
+	
 }
 @keyframes snowfall-effect{
 	0%{
@@ -31,8 +89,6 @@ body{
 		background-position: 500px, 10000px, 400px, 400px, 300px, 300px;
 	}
 }
-
-
 
 @keyframes body{
 	0%{
@@ -48,57 +104,74 @@ body{
 	}
 }
 
-
 h1{
 	margin: 1px;
 }
 h1:focus{
 	color: yellow;
 }
-#main-header{
-	font-size: 20px;
-	text-align: center;
-	text-transform: uppercase;	
-	color:white;
-	
-	background: linear-gradient(to right,#5ee0a8 10%,#3b52f0);
-	margin:0;
-	/*padding: 25px 20px;  this blocked snow  */
-	
-}
-#navbar a:focus{
-	color:yellow;
-}
 
-#navbar a:hover{
-	text-shadow:0px 0px 10px white;
-}
 
-#navbar a{
+a{
 	color: white;
 	text-decoration: none;
+	padding:1px;
 }
-
+a:focus{
+	color:yellow;
+}
+a:hover{
+	text-shadow:0px 0px 10px white;
+}
+#main-header{
+	font-size: var(--mainfont);
+	width:100%;	
+	text-transform: uppercase;	
+	text-align: center;
+	vertical-align: middle;
+	color:white;
+	background-image: linear-gradient(to right,#5ee0a8 10%,#3b52f0);	
+	/*padding: 25px 20px; this blocked snow- moved to .snow */
+	padding: 25px 0;
+	
+}
 #navbar li{
-	font-size: 20px;
+	display: flex;
+	font-size: var(--menufont,400px);
+	font-weight: 600;
 	letter-spacing: 2px;
 	float:left;
-	width:25%;
-	text-align: center;
+	white-space: pre;
+	justify-content: center; 
 	padding: 15px 15px;
-	border: 0.5px solid darkblue;
-	
+	border: 0.5px solid darkblue;	
 	background-image: linear-gradient(to bottom, #5ee0a8, #338fff);
-	box-sizing:border-box;
+	
 	margin-bottom:20px;
+	width:25%;
+	box-sizing:border-box;
 }
 #navbar ul{
 	list-style: none;
 }
-
-
+#main-footer{
+	display: flex;
+	justify-content: center; 
+	bottom: 0;
+	width:100%;
+	height: 40px;	
+	background-color: hsl(0, 0%, 85%);
+	background-width: 100%;
+	color: grey;		
+	box-shadow: 0px -1px 2px black;
+	opacity: 0.9;
+}
+.box-container{
+	max-width: page;
+}
 .section{
 	border:0.3px solid #ffffff;
+	font-weight: 500;
 	box-shadow: 3px 2px 4px black;
 	background-color: #ffffff;
 	padding: 10px;
@@ -107,22 +180,22 @@ h1:focus{
 	
 }
 
-.container{
-	margin: auto;
-	width: 80%;
-	overflow: hidden;	
+.fixed{
+	position: fixed;
+	left:0;
+	top: 200px;
 }
-#main-footer{
-	position: absolute;
-	bottom: 0;
-	width:100%;
-	height: 40px;
-	background-color: hsl(0, 0%, 85%);
-	background-width: 100%;
-	color: grey;
+.left-button{
+	margin: 1% 0px;
+	margin: var(--margin-fix);
 	text-align: center;
-	box-shadow: 0px -1px 2px black;
-
+	padding:20px;
+	white-space: nowrap;
+	border-radius:50%;
+	background-color: mediumseagreen;	
+	color:white;
+	transform:var(--buttontransform);
+	
 }
 
 
