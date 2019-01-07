@@ -1,3 +1,7 @@
+/*Posioning info:
+	z-index:10; highest value
+   */
+
 *{
 	margin:0;
 	padding:0;
@@ -9,43 +13,39 @@
 :root{
 	--menufont: 20px;
 	--mainfont: 20px;
+	--h1-padding:25px 0;
+	--menu-padding: 15px 0;
+	
 }
 @media (max-width:700px){
 	:root{
 		--menufont: 15px;
-		--mainfont: 18px;
+		--mainfont: 18px; 
+		--h1-padding:20px 0;
 		--buttontransform: scale(0.8);
 		--margin-fix: 0px 0px -10px -10px;
-	}
-	iframe{
-		
+		--menu-padding: 13px 0;
 	}
 }
 
-@media (max-width: 540px){
+@media (max-width: 550px){
 	:root{
-		--menufont:13px;
-		--mainfont:15px;
+		--h1-padding:15px 0;
 		--buttontransform: scale(0.7);
 		--margin-fix: 0px 0px -15px -15px;
-		
-	}
-	iframe{
-
+		--menu-padding: 5px 0; 
 	}
 }
 @media (max-width: 470px){
 	:root{
-		--menufont:9px;
-		--mainfont:12px;
+		--h1-padding:5px 0;
+		--menufont:10px;
+		--mainfont:12px; 
 		--buttontransform: scale(0.58);
 		--margin-fix: 0px 0px -20px -20px;
+		--menu-padding: 5px 0;
 		
-	}
-	iframe{
-		
-	}
-	
+	}		
 }
 body{
 	
@@ -75,8 +75,7 @@ iframe{
 	width:60%;
 	/* bottom: 31em;
 	left:22.5em;   
-	this is for video position if wanna made black*/
-	
+	this is for video position if wanna make it black*/
 }	
 .snow{	
 	background-image: url("snow-first.png"), url("snow-second.png"), url("snow-third.png");
@@ -108,12 +107,12 @@ iframe{
 
 h1{
 	margin: 1px;
-	padding: 25px 0;
+	padding: var(--h1-padding);
 }
 h1:focus{
 	color: yellow;
+	outline: none;
 }
-
 
 a{
 	color: white;
@@ -135,31 +134,27 @@ a:hover{
 	color:white;
 	background-image: linear-gradient(to right,#5ee0a8 10%,#3b52f0);	
 	
-	
-	
 }
-#navbar li{
-	
-	font-size: var(--menufont,400px);
+#navbar li{	
+	font-size: var(--menufont);
 	font-weight: 600;
-	letter-spacing: 2px;
-	float:left;
-	white-space: pre;
+	letter-spacing: 2px;	
 	text-align: center;
-	padding: 15px 15px;
+	padding: 15px 0;
+	padding: var(--menu-padding);
 	border: 0.5px solid darkblue;	
-	background-image: linear-gradient(to bottom, #5ee0a8, #338fff);
-	
+	background-image: linear-gradient(to bottom, #5ee0a8, #338fff);	
 	margin-bottom:20px;
 	width:25%;
 	box-sizing:border-box;
 }
 #navbar ul{
 	list-style: none;
+	display: flex;
 }
 #main-footer{
 	display: flex;
-	justify-content: center; 
+	justify-content: center;
 	bottom: 0;
 	width:100%;
 	height: 40px;	
@@ -173,7 +168,7 @@ a:hover{
 	position: sticky;
 	position: -webkit-sticky; /*Safari*/
 	top: 0;
-	z-index: 1;
+	z-index: 9;
 }
 .section{
 	border:0.3px solid #ffffff;
@@ -183,7 +178,7 @@ a:hover{
 	padding: 10px;
 	border-radius: 25px;
 	opacity: 0.6;
-	z-index: 2;
+	z-index: 1;
 	
 }
 .space-for-video{
@@ -193,11 +188,12 @@ a:hover{
 
 .fixed{
 	position: fixed;
-	left:0;
+	right:0;
 	top: 200px;
+	opacity: 0.8;
 }
-.left-button{
-	margin: 1% 0px;
+.right-button{
+	margin: 2% 0px;
 	margin: var(--margin-fix);
 	text-align: center;
 	padding:20px;
@@ -208,5 +204,39 @@ a:hover{
 	transform:var(--buttontransform);
 	
 }
+.first-page{
+	border:4px dotted white;
+}
+#up{
+	position: absolute;
+	top:10;
+	color:white;
+	right:0;
+	right: 30px;
+	background-color: green;
+	padding:10px;
+	font-size: 18px;
+	font-weight: bolder;
+	border-radius:25%;
+	outline: none;
+	z-index: 9;
 
+}
+.previous{
+	text-decoration: line-through;
+	text-decoration-color: white;
+	
+}
 
+/* on last page rename */
+.previous a:hover{
+	text-shadow:none;
+}
+.previous a:focus{
+	color:white;
+	outline: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
