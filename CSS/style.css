@@ -208,10 +208,9 @@ a:hover{
 	border:4px dotted white;
 }
 #up{
-	position: absolute;
-	top:10;
-	color:white;
-	right:0;
+	position: fixed;
+	bottom:20px;
+	color:white;	
 	right: 30px;
 	background-color: green;
 	padding:10px;
@@ -220,7 +219,7 @@ a:hover{
 	border-radius:25%;
 	outline: none;
 	z-index: 9;
-
+	opacity:0.8;
 }
 .previous{
 	text-decoration: line-through;
