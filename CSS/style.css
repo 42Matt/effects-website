@@ -7,6 +7,10 @@
 	padding:0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .clr{
 	clear: both;
 }
@@ -15,16 +19,18 @@
 	--mainfont: 20px;
 	--h1-padding:25px 0;
 	--menu-padding: 15px 0;
-	
+	--iframe-height: 400px;
+
 }
 @media (max-width:700px){
 	:root{
 		--menufont: 15px;
-		--mainfont: 18px; 
+		--mainfont: 18px;
 		--h1-padding:20px 0;
 		--buttontransform: scale(0.8);
 		--margin-fix: 0px 0px -10px -10px;
 		--menu-padding: 13px 0;
+		--iframe-height: 250px;
 	}
 }
 
@@ -32,34 +38,41 @@
 	:root{
 		--h1-padding:15px 0;
 		--buttontransform: scale(0.7);
-		--margin-fix: 0px 0px -15px -15px;
-		--menu-padding: 5px 0; 
+		--margin-fix: 0px -15px -15px 0px;
+		--menu-padding: 5px 0;
+		--iframe-height: 200px;
 	}
 }
 @media (max-width: 470px){
 	:root{
 		--h1-padding:5px 0;
-		--menufont:10px;
-		--mainfont:12px; 
+		/* --menufont:10px; */
+		--mainfont:12px;
 		--buttontransform: scale(0.58);
-		--margin-fix: 0px 0px -20px -20px;
+		--margin-fix: 0px -20px -20px 0px;
 		--menu-padding: 5px 0;
-		
-	}		
+		--iframe-height: 200px;
+	}
+	#navbar ul{
+		flex-direction: column;
+	}
+	.right-button{
+		right:0;
+	}
 }
 body{
-	
-	font-family: 'Open Sans', sans-serif;	
+	font-family: 'Open Sans', sans-serif;
 	color: black;
-	animation: body 30s linear infinite;	
+	animation: body 30s linear infinite;
 	animation-fill-mode: forwards;
-	background-image: url("snow-first.png"), url("snow-second.png"), url("snow-third.png"); 
+	background-image: url("snow-first.png"), url("snow-second.png"), url("snow-third.png");
 }
 .main-container{
 	margin: auto;
 	width: 80%;
 	overflow: hidden;
 	margin-bottom: 50px;
+	margin-top:20px;
 }
 .container{
 	margin: auto;
@@ -69,18 +82,18 @@ body{
 }
 
 iframe{
-	
-	display: block;
+	display: flex;
 	margin: auto;
 	width:60%;
+	height:var(--iframe-height);
 	/* bottom: 31em;
-	left:22.5em;   
+	left:22.5em;
 	this is for video position if wanna make it black*/
-}	
-.snow{	
+}
+.snow{
 	background-image: url("snow-first.png"), url("snow-second.png"), url("snow-third.png");
-	animation: snowfall-effect 30s linear infinite;	
-	
+	animation: snowfall-effect 30s linear infinite;
+
 }
 @keyframes snowfall-effect{
 	0%{
@@ -127,25 +140,24 @@ a:hover{
 }
 #main-header{
 	font-size: var(--mainfont);
-	width:100%;	
-	text-transform: uppercase;	
+	width:100%;
+	text-transform: uppercase;
 	text-align: center;
 	vertical-align: middle;
 	color:white;
-	background-image: linear-gradient(to right,#5ee0a8 10%,#3b52f0);	
-	
+	background-image: linear-gradient(to right,#5ee0a8 10%,#3b52f0);
+
 }
-#navbar li{	
+#navbar ul li{
 	font-size: var(--menufont);
 	font-weight: 600;
-	letter-spacing: 2px;	
+	letter-spacing: 2px;
 	text-align: center;
-	padding: 15px 0;
+
 	padding: var(--menu-padding);
-	border: 0.5px solid darkblue;	
-	background-image: linear-gradient(to bottom, #5ee0a8, #338fff);	
-	margin-bottom:20px;
-	width:25%;
+	border: 1px solid darkblue;
+	background-image: linear-gradient(to bottom, #5ee0a8, #338fff);
+	flex-basis: 100%;
 	box-sizing:border-box;
 }
 #navbar ul{
@@ -155,12 +167,14 @@ a:hover{
 #main-footer{
 	display: flex;
 	justify-content: center;
+	-ms-align-items: center;
+	align-items: center;
 	bottom: 0;
 	width:100%;
-	height: 40px;	
+	height: 40px;
 	background-color: hsl(0, 0%, 85%);
 	background-width: 100%;
-	color: grey;		
+	color: grey;
 	box-shadow: 0px -1px 2px black;
 	opacity: 0.9;
 }
@@ -179,7 +193,7 @@ a:hover{
 	border-radius: 25px;
 	opacity: 0.6;
 	z-index: 1;
-	
+
 }
 .space-for-video{
 	width:560px;
@@ -189,7 +203,7 @@ a:hover{
 .fixed{
 	position: fixed;
 	right:0;
-	top: 200px;
+	top: 25%;
 	opacity: 0.8;
 }
 .right-button{
@@ -199,10 +213,10 @@ a:hover{
 	padding:20px;
 	white-space: nowrap;
 	border-radius:50%;
-	background-color: mediumseagreen;	
+	background-color: mediumseagreen;
 	color:white;
 	transform:var(--buttontransform);
-	
+
 }
 .first-page{
 	border:4px dotted white;
@@ -210,21 +224,21 @@ a:hover{
 #up{
 	position: fixed;
 	bottom:20px;
-	color:white;	
+	color:white;
 	right: 30px;
 	background-color: green;
-	padding:10px;
+	padding:8px;
 	font-size: 18px;
 	font-weight: bolder;
 	border-radius:25%;
 	outline: none;
 	z-index: 9;
-	opacity:0.8;
+	opacity:0.7;
 }
 .previous{
 	text-decoration: line-through;
 	text-decoration-color: white;
-	
+
 }
 
 /* on last page rename */
@@ -234,8 +248,4 @@ a:hover{
 .previous a:focus{
 	color:white;
 	outline: none;
-}
-
-html {
-  scroll-behavior: smooth;
 }
